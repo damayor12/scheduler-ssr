@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  height: 100vh;
+  /* display: grid; */
+}
+
+*,
+body,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+body {
+  font-family: Mukta, sans-serif;
+
+  justify-content: center;
+  align-items: center;
+  color: grey;
+  font-size: 0.9rem;
+  background-color: fff;
+  /* display: flex; */
+  align-items: center;
+  margin: 0 auto;
+}
+
+table {
+  border-collapse: collapse;
+  box-shadow: 0 5px 10px grey;
+  background-color: white;
+  text-align: left;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-bottom: 16px;
+}
+thead {
+  box-shadow: 0 5px 10px grey;
+}
+
+th {
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 0.7rem;
+  font-weight: 900;
+  /* display: flex; 
+    justify-content: space-between; 
+    flex-direction: row; */
+}
+
+td {
+  padding: 1rem;
+}
+
+a {
+  text-decoration: none;
+  /* color: $clr-link; */
+}
+
+.status {
+  border-radius: 5px;
+  background-color: red;
+  padding: 0.2rem 1rem;
+  text-align: center;
+}
+
+.status-pending {
+  background-color: yellow;
+  /* color: $clr-pending-font; */
+}
+
+.status-paid {
+  background-color: lime;
+  /* color: $clr-paid-font; */
+}
+
+.status-unpaid {
+  background-color: pink;
+  /* color: $clr-unpaid-font; */
+}
+
+.amount {
+  text-align: right;
+}
+
+/* // Color alternating rows */
+tr:nth-child(even) {
+  background-color: #f4f6fb;
+}
+
+th,
+td {
+  border: 1px solid black;
+}
+
+td {
+  width: 100px;
+  max-width: max-content;
+}
