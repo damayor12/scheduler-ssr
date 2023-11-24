@@ -65,9 +65,9 @@ function Load() {
               >
                 shuffle
               </button>
-            </div>
 
-            {errorAlert && <span style={{ color: 'red' }}>try again</span>}
+              {errorAlert && <span style={{ color: 'red' }}>try again</span>}
+            </div>
           </div>
 
           <Table setShifts={setShifts} shifts={shifts} tableColumns={tableColumns}>

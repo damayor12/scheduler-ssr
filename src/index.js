@@ -6,18 +6,18 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <BrowserRouter>
-//     <App />
-//   </BrowserRouter>,
-// );
-
-hydrateRoot(
-  document.getElementById('root'),
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <BrowserRouter>
-    <App tab="home" />
+    <App />
   </BrowserRouter>,
 );
+
+// hydrateRoot(
+//   document.getElementById('root'),
+//   <BrowserRouter>
+//     <App tab="home" />
+//   </BrowserRouter>,
+// );
 
 reportWebVitals();

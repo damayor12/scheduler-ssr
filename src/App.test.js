@@ -20,7 +20,7 @@ describe('Home', () => {
   afterEach(() => server.resetHandlers());
   afterAll(() => server.close());
 
-  test('renders learn react lin', async () => {
+  test('renders App', async () => {
     render(<App />);
 
     const MatchedLoadElements = await screen.findAllByText(/Load/i);

@@ -38,7 +38,12 @@ export const shuffleShifts = (shifts) => {
 
   let shuffledArrOfAvailableShiftsOptions = [...shuffledArrOfAvailableShifts];
 
+  if (staffWithoutEnoughShifts.length < 1) {
+    toast.error('Shifts filled!');
+    return;
+  }
   for (const staffObj of staffWithoutEnoughShifts) {
+    console.log('fired', staffObj);
     let flag = false;
     for (let i = 0; i < shuffledArrOfAvailableShiftsOptions.length; i++) {
       const currentObj = shuffledArrOfAvailableShiftsOptions[i];
@@ -73,6 +78,8 @@ export const shuffleShifts = (shifts) => {
       toast.error('Shuffle not possible');
       return undefined;
     }
+
+    flag = false;
   }
 
   toast.success('Success!');

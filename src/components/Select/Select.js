@@ -16,19 +16,12 @@ const StyledSelect = styled.select`
 `;
 
 const Select = ({ shifts, shiftDay, schedule, selectedStaffProps, setShifts }) => {
-  const [selectedStaff, setSelectedStaff] = useState(selectedStaffProps.user);
-
-  useEffect(() => {
-    setSelectedStaff(selectedStaffProps);
-  }, [selectedStaffProps]);
-
   const [errorAlert, setErrorAlert] = useState(false);
   const timeoutIdRef = React.useRef();
 
   const onOptionChangeHandler = (event) => {
     if (isValidStaff(event.target.value)) {
       if (isValidSelection([...shifts], shiftDay, schedule, event.target.value)) {
-        setSelectedStaff(event.target.value);
         setShifts((prevShifts) =>
           prevShifts.map((itemObj) => {
             if (itemObj.schedule === schedule) {
@@ -46,19 +39,27 @@ const Select = ({ shifts, shiftDay, schedule, selectedStaffProps, setShifts }) =
         clearTimeout(timeoutIdRef.current);
         timeoutIdRef.timeId = setTimeout(() => setErrorAlert(false), 5000);
       }
-    } else setSelectedStaff('⛔️⛔️');
-
-    console.log('User Selected Value - ', event.target.value);
+    } else {
+      setShifts((prevShifts) =>
+        prevShifts.map((itemObj) => {
+          if (itemObj.schedule === schedule) {
+            itemObj[shiftDay] = { id: null, user: '⛔️⛔️', status: true };
+            return itemObj;
+          }
+          return itemObj;
+        }),
+      );
+    }
   };
 
   return getOptions() ? (
     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
       <span style={{ textAlign: 'left', color: `${errorAlert ? 'red' : 'inherit'}` }}>
-        {selectedStaff.user}
+        {selectedStaffProps.user}
       </span>
 
       <StyledSelect
-        value={selectedStaffProps.user || selectedStaff}
+        value={selectedStaffProps.user}
         onChange={onOptionChangeHandler}
         style={{ width: '20px' }}
         $error={errorAlert}
